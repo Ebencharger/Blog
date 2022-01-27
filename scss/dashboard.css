@@ -1,0 +1,28 @@
+.row {
+  margin: -6px;
+}
+
+.col-sm {
+  margin: 0px;
+  padding: 0px;
+}
+
+form {
+  width: 40%;
+  margin-top: 50px;
+  margin-left: 30%;
+}
+form div {
+  margin-bottom: 30px;
+}
+form div input {
+  width: 100%;
+}
+form div button {
+  width: 100%;
+}
+form div textarea {
+  padding: 20px;
+}
+
+/*# sourceMappingURL=dashboard.css.map */
