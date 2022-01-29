@@ -1,6 +1,6 @@
 <?php
 $email=$_POST['email'];
-$password=md5($_POST['password']);
+$psd=md5($_POST['password']);
 $error=false;
 require "./dbconn.php";
 session_start();
@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
    }
 }
 if (!$error) {
-    $usa=mysqli_query($conn, "SELECT * From users where email='$email'");
+    $usa=mysqli_query($conn, "SELECT * From users where email='$email' and psd='$psd'");
  if ($usa) {
    while($myData=mysqli_fetch_array($usa)){
        $_SESSION['id']=$myData['id'];
@@ -25,9 +25,9 @@ if (!$error) {
    }
  }
  else{
+    header('location:../index.php');
      $_SESSION['email']='Email does not exist';
-     $_SESSION['password']='Email does not exist';
-     header('location:../index.php');
+     $_SESSION['password']='Password does not exist';
  }
 //   $_SESSION['id']
 }

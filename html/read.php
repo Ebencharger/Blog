@@ -12,7 +12,7 @@ $query = mysqli_query($conn, "SELECT * From content JOIN users ON users.id=conte
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../scss/read.css">
-    <title>Document</title>
+    <title>READ</title>
 </head>
 
 <body>
@@ -26,6 +26,9 @@ $query = mysqli_query($conn, "SELECT * From content JOIN users ON users.id=conte
                 <?php
                 if (mysqli_num_rows($query) >= 1) {
                     while ($all = mysqli_fetch_assoc($query)) {
+                        $view=$all['view']+1;
+                        $update="UPDATE content SET view='$view' where content.id='$id'";
+                        mysqli_query($conn, $update);
                 ?>
                         <div class="holder">
                             <h5 class="text-center">
@@ -39,7 +42,7 @@ $query = mysqli_query($conn, "SELECT * From content JOIN users ON users.id=conte
                                 echo "Posted by ". $all['fullname'];
                                 ?></h5>
                             <h5> <?php
-                                echo "On ". $all['date'];
+                                echo "On ". $all['date']." read by ".$all['view']." people";
                                 ?></h5>
                         </div>
                 <?php

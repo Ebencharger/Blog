@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../scss/signup.css">
     <link rel="stylesheet" href="../bootstrap/bootstrap.css">
-    <title>SIGN UP</title>
+    <title>SIGNUP</title>
 </head>
 <body>
 <main class="row">
